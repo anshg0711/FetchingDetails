@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FetchingDetails</string>
+    <string name="LifeCycle">LifeCycle</string>
+    <string name="onResume">onResume</string>
+    <string name="onCreate">onCreate</string>
+    <string name="onStart">onStart</string>
+    <string name="onStop">onStop</string>
+    <string name="onPause">onPause</string>
+    <string name="onDestroy">onDestroy</string>
+</resources>

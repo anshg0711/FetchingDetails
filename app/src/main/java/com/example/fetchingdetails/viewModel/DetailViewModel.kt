@@ -9,7 +9,14 @@ class DetailViewModel:ViewModel() {
     private var _detailsList= MutableStateFlow<List<Details>>(emptyList())
     val detailsList: StateFlow<List<Details>>
         get() = _detailsList.asStateFlow()
+    fun addDetail(){
+        var currentList=_detailsList.value
+        currentList=currentList+Details()
+        _detailsList.value=currentList
+    }
     init {
-
+        addDetail()
+        addDetail()
+        addDetail()
     }
 }

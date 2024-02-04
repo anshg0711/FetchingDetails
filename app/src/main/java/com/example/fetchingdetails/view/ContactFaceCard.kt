@@ -52,7 +52,7 @@ fun ContactFaceCard(contact: Contact,contactViewModel: ContactViewModel) {
                 }
 
             }
-            Row() {
+            Row {
                 Text(
                     modifier = Modifier.weight(1F),
                     fontWeight = FontWeight(1000),
@@ -60,7 +60,7 @@ fun ContactFaceCard(contact: Contact,contactViewModel: ContactViewModel) {
                 )
                 Text(modifier = Modifier.weight(1F), text = "${contact.first_name}  ")
             }
-            Row() {
+            Row {
                 Text(
                     modifier = Modifier.weight(1F),
                     fontWeight = FontWeight(1000),
@@ -68,7 +68,7 @@ fun ContactFaceCard(contact: Contact,contactViewModel: ContactViewModel) {
                 )
                 Text(modifier = Modifier.weight(1F), text = "${contact.last_name}  ")
             }
-            Row() {
+            Row {
                 Text(
                     modifier = Modifier.weight(1F),
                     fontWeight = FontWeight(1000),
@@ -76,7 +76,7 @@ fun ContactFaceCard(contact: Contact,contactViewModel: ContactViewModel) {
                 )
                 Text(modifier = Modifier.weight(1F), text = "${contact.phone_number}  ")
             }
-            Row() {
+            Row {
                 Text(
                     modifier = Modifier.weight(1F),
                     fontWeight = FontWeight(1000),
@@ -84,7 +84,7 @@ fun ContactFaceCard(contact: Contact,contactViewModel: ContactViewModel) {
                 )
                 Text(modifier = Modifier.weight(1F), text = "${contact.date_of_birth}  ")
             }
-            Row() {
+            Row {
                 Text(
                     modifier = Modifier.weight(1F),
                     fontWeight = FontWeight(1000),
@@ -92,7 +92,7 @@ fun ContactFaceCard(contact: Contact,contactViewModel: ContactViewModel) {
                 )
                 Text(modifier = Modifier.weight(1F), text = "${contact.email}  ")
             }
-            Row() {
+            Row {
                 Text(
                     modifier = Modifier.weight(1F),
                     fontWeight = FontWeight(1000),
@@ -103,7 +103,7 @@ fun ContactFaceCard(contact: Contact,contactViewModel: ContactViewModel) {
                     text = "${contact.address.city}/${contact.address.country}"
                 )
             }
-            Row() {
+            Row {
                 Text(
                     modifier = Modifier.weight(1F),
                     fontWeight = FontWeight(1000),

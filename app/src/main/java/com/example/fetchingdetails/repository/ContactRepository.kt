@@ -5,7 +5,7 @@ import com.example.fetchingdetails.repository.api.ContactService
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-class ContactRepository(val contactService: ContactService) {
+class ContactRepository(private val contactService: ContactService) {
     private var _contactList = MutableStateFlow<MutableList<Contact>>(mutableListOf())
     val contactsList: StateFlow<List<Contact>>
         get() = _contactList

@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 
-class ContactViewModel( val contactRepository: ContactRepository): ViewModel() {
+class ContactViewModel(private val contactRepository: ContactRepository): ViewModel() {
     val contactList: StateFlow<List<Contact>> get()=contactRepository.contactsList
     fun addContact(){
         viewModelScope.launch(Dispatchers.IO) {

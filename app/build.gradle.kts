@@ -50,8 +50,13 @@ android {
 }
 
 dependencies {
+    implementation ("androidx.compose.ui:ui:1.0.0")
+    implementation ("androidx.compose.material:material:1.0.0")
+    implementation ("io.coil-kt:coil-compose:1.4.0")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("androidx.fragment:fragment-ktx:1.6.2")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")

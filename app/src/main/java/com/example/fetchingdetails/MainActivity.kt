@@ -7,18 +7,24 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.ViewModelProvider
+import com.example.fetchingdetails.repository.api.ContactService
+import com.example.fetchingdetails.repository.api.RetrofitHelper
+import com.example.fetchingdetails.repository.ContactRepository
 import com.example.fetchingdetails.ui.theme.FetchingDetailsTheme
 import com.example.fetchingdetails.view.FirstPage
+import com.example.fetchingdetails.viewModel.ContactViewModel
+import com.example.fetchingdetails.viewModel.ContactViewModelFactory
 
 class MainActivity : ComponentActivity() {
+    private lateinit var viewModel: ContactViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(getString(R.string.LifeCycle), getString(R.string.onCreate))
-
+        val contactService= RetrofitHelper.getInstance().create(ContactService::class.java)
+        val contactRepository=ContactRepository(contactService)
+        viewModel = ViewModelProvider(this, ContactViewModelFactory(contactRepository)).get(ContactViewModel::class.java)
         setContent {
             FetchingDetailsTheme {
                 // A surface container using the 'background' color from the theme
@@ -26,13 +32,15 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    FirstPage()
+
+                    FirstPage(contactViewModel = viewModel)
                 }
             }
 
         }
 
     }
+
     override fun onStart() {
         super.onStart()
         Log.d(getString(R.string.LifeCycle), getString(R.string.onStart))

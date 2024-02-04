@@ -1,6 +1,7 @@
 package com.example.fetchingdetails.model
 
 data class Details(
+    val id: Int=0,
     val firstName: String="Ansh",
     val lastName: String="Gupta",
     val contact: String="9350143089",

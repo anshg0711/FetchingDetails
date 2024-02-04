@@ -19,11 +19,11 @@ import com.example.fetchingdetails.viewModel.ContactViewModelFactory
 
 class MainActivity : ComponentActivity() {
     private lateinit var viewModel: ContactViewModel
+    private val contactService= RetrofitHelper.getInstance().create(ContactService::class.java)
+    private val contactRepository=ContactRepository(contactService)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(getString(R.string.LifeCycle), getString(R.string.onCreate))
-        val contactService= RetrofitHelper.getInstance().create(ContactService::class.java)
-        val contactRepository=ContactRepository(contactService)
         viewModel = ViewModelProvider(this, ContactViewModelFactory(contactRepository)).get(ContactViewModel::class.java)
         setContent {
             FetchingDetailsTheme {

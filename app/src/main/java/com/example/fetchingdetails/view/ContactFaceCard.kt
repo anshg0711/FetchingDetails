@@ -103,7 +103,7 @@ fun ContactFaceCard(contact: Contact,contactViewModel: ContactViewModel) {
                     text = "${contact.address.city}/${contact.address.country}"
                 )
             }
-          
+
 
         }
     }

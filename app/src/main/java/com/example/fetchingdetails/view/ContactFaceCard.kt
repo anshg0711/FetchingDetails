@@ -103,14 +103,7 @@ fun ContactFaceCard(contact: Contact,contactViewModel: ContactViewModel) {
                     text = "${contact.address.city}/${contact.address.country}"
                 )
             }
-            Row {
-                Text(
-                    modifier = Modifier.weight(1F),
-                    fontWeight = FontWeight(1000),
-                    text = "Id: "
-                )
-                Text(modifier = Modifier.weight(1F), text = "${contact.id}  ")
-            }
+          
 
         }
     }

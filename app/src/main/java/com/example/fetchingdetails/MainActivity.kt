@@ -9,9 +9,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelProvider
+import androidx.room.Room
 import com.example.fetchingdetails.repository.api.ContactService
 import com.example.fetchingdetails.repository.api.RetrofitHelper
 import com.example.fetchingdetails.repository.ContactRepository
+import com.example.fetchingdetails.repository.roomDatabase.ContactDatabase
 import com.example.fetchingdetails.ui.theme.FetchingDetailsTheme
 import com.example.fetchingdetails.view.FirstPage
 import com.example.fetchingdetails.viewModel.ContactViewModel
@@ -19,12 +21,15 @@ import com.example.fetchingdetails.viewModel.ContactViewModelFactory
 
 class MainActivity : ComponentActivity() {
     private lateinit var viewModel: ContactViewModel
-    private val contactService= RetrofitHelper.getInstance().create(ContactService::class.java)
-    private val contactRepository=ContactRepository(contactService)
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+         val contactService= RetrofitHelper.getInstance().create(ContactService::class.java)
+         val contactRepository=ContactRepository(contactService)
+         val contactDatabase= Room.databaseBuilder(applicationContext,ContactDatabase::class.java,"contact_DB").build()
         Log.d(getString(R.string.LifeCycle), getString(R.string.onCreate))
-        viewModel = ViewModelProvider(this, ContactViewModelFactory(contactRepository)).get(ContactViewModel::class.java)
+        viewModel = ViewModelProvider(this, ContactViewModelFactory(contactRepository,contactDatabase)).get(ContactViewModel::class.java)
         setContent {
             FetchingDetailsTheme {
                 // A surface container using the 'background' color from the theme

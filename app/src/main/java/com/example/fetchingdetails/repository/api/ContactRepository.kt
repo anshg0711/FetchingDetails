@@ -1,7 +1,6 @@
-package com.example.fetchingdetails.repository
+package com.example.fetchingdetails.repository.api
 
 import com.example.fetchingdetails.model.Contact
-import com.example.fetchingdetails.repository.api.ContactService
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 

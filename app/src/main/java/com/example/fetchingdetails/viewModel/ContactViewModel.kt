@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.fetchingdetails.model.Contact
-import com.example.fetchingdetails.repository.ContactRepository
+import com.example.fetchingdetails.repository.api.ContactRepository
 import com.example.fetchingdetails.repository.roomDatabase.ContactDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.StateFlow
@@ -13,7 +13,9 @@ import kotlinx.coroutines.launch
 
 
 
-class ContactViewModel(private val contactRepository: ContactRepository, private val contactDatabase: ContactDatabase): ViewModel() {
+class ContactViewModel(private val contactRepository: ContactRepository, private val contactDatabase: ContactDatabase): ViewModel()
+
+{
 
     val contactList: StateFlow<List<Contact>> get()=contactRepository.contactsList
     fun addContact(){

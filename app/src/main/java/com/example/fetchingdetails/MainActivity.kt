@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.fetchingdetails.repository.api.ContactApi
 import com.example.fetchingdetails.repository.api.RetrofitHelper
 import com.example.fetchingdetails.repository.api.ContactApiRepository
-import com.example.fetchingdetails.repository.roomDatabase.ContactDatabase
+import com.example.fetchingdetails.repository.roomDatabase.ContactRoomDatabase
 import com.example.fetchingdetails.ui.theme.FetchingDetailsTheme
 import com.example.fetchingdetails.view.FirstPage
 import com.example.fetchingdetails.viewModel.ContactViewModel
@@ -26,10 +26,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
          val contactApi= RetrofitHelper.getInstance().create(ContactApi::class.java)
          val contactApiRepository= ContactApiRepository(contactApi)
-         val contactDatabase= ContactDatabase.getInstance(applicationContext)
-        contactDatabase.printDatabasePath(applicationContext)
+         val contactRoomDatabase= ContactRoomDatabase.getInstance(applicationContext)
+        contactRoomDatabase.printDatabasePath(applicationContext)
         Log.d(getString(R.string.LifeCycle), getString(R.string.onCreate))
-        viewModel = ViewModelProvider(this, ContactViewModelFactory(contactApiRepository,contactDatabase)).get(ContactViewModel::class.java)
+        viewModel = ViewModelProvider(this, ContactViewModelFactory(contactApiRepository,contactRoomDatabase)).get(ContactViewModel::class.java)
         setContent {
             FetchingDetailsTheme {
                 // A surface container using the 'background' color from the theme

@@ -9,7 +9,7 @@ import com.example.fetchingdetails.model.Contact
 
 
 @Database(entities = [ Contact::class ], version = 1)
-abstract class ContactDatabase(): RoomDatabase(){
+abstract class ContactRoomDatabase(): RoomDatabase(){
 
     fun printDatabasePath(context: Context) {
         val dbPath: String = context.getDatabasePath("contact_DB").absolutePath
@@ -27,12 +27,12 @@ abstract class ContactDatabase(): RoomDatabase(){
     }
     companion object{
         @Volatile
-        private var instance: ContactDatabase? =null
-        fun getInstance(context: Context): ContactDatabase {
+        private var instance: ContactRoomDatabase? =null
+        fun getInstance(context: Context): ContactRoomDatabase {
             synchronized(this) {
                 if (instance == null) {
                     instance =
-                        Room.databaseBuilder(context, ContactDatabase::class.java, "contactDB")
+                        Room.databaseBuilder(context, ContactRoomDatabase::class.java, "contactDB")
                             .build()
                 }
             }

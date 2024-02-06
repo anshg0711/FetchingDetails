@@ -27,3 +27,15 @@ n
 Napp/src/main/java/com/example/fetchingdetails/repository/api/ContactService.kt,b/0/b0dcd384f81dff0998fa21726199b7b94d1e97e4
 Å
 Qapp/src/main/java/com/example/fetchingdetails/repository/api/ContactRepository.kt,8/5/85f67e56a554e75a955c9d4e701f7c1dcb404f1a
+r
+Bapp/src/main/java/com/example/fetchingdetails/model/Coordinates.kt,8/8/883043588d214e4c888b59a69c20a3a48929d668
+q
+Aapp/src/main/java/com/example/fetchingdetails/model/Employment.kt,3/7/37245e09d1ec0458e75ffedd5e7d632f0c17631e
+s
+Capp/src/main/java/com/example/fetchingdetails/model/Subscription.kt,5/d/5d2541ee38ac187e4980af0d2b6a953687265758
+å
+\app/src/main/java/com/example/fetchingdetails/repository/roomDatabase/ContactRoomDatabase.kt,0/1/01c0e96c6eecc062c7eb00d82e7caed9bc3049cc
+u
+Eapp/src/main/java/com/example/fetchingdetails/view/ContactFaceCard.kt,3/e/3ed4f4e8776fbf4c71a97ef441534940cc635daa
+o
+?app/src/main/java/com/example/fetchingdetails/view/FirstPage.kt,5/c/5c54b88824a4d0ee608e40d37e57e72201a3d39e

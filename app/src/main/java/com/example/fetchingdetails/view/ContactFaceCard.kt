@@ -37,7 +37,7 @@ fun ContactFaceCard(contact: Contact,contactViewModel: ContactViewModel) {
 
                 Image(
                     painter = rememberImagePainter(data = contact.avatar),
-                    contentDescription = "asdfads", modifier = Modifier
+                    contentDescription = "image of the avatar", modifier = Modifier
                         .size(135.dp).weight(.6F)
                         .clip(MaterialTheme.shapes.medium)
                 )

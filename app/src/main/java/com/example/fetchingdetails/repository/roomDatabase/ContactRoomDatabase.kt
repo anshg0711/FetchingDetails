@@ -9,7 +9,7 @@ import com.example.fetchingdetails.model.Contact
 
 
 @Database(entities = [ Contact::class ], version = 1)
-abstract class ContactRoomDatabase(): RoomDatabase(){
+abstract class ContactRoomDatabase: RoomDatabase(){
 
     fun printDatabasePath(context: Context) {
         val dbPath: String = context.getDatabasePath("contact_DB").absolutePath

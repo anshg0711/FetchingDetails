@@ -24,11 +24,12 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(getString(R.string.LifeCycle), getString(R.string.onCreate))
          val contactApi= RetrofitHelper.getInstance().create(ContactApi::class.java)
          val contactApiRepository= ContactApiRepository(contactApi)
-         val contactRoomDatabase= ContactRoomDatabase.getInstance(applicationContext)
-        contactRoomDatabase.printDatabasePath(applicationContext)
-        Log.d(getString(R.string.LifeCycle), getString(R.string.onCreate))
+         val contactRoomDatabase:ContactRoomDatabase = ContactRoomDatabase.getInstance(applicationContext)
+        Log.d("RoomDatabase path",contactRoomDatabase.printDatabasePath(applicationContext).toString())
+
         viewModel = ViewModelProvider(this, ContactViewModelFactory(contactApiRepository,contactRoomDatabase)).get(ContactViewModel::class.java)
         setContent {
             FetchingDetailsTheme {

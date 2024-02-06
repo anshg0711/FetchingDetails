@@ -1,17 +1,16 @@
-package com.example.fetchingdetails.repository
+package com.example.fetchingdetails.repository.api
 
 import com.example.fetchingdetails.model.Contact
-import com.example.fetchingdetails.repository.api.ContactService
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-class ContactRepository(private val contactService: ContactService) {
+class ContactApiRepository(private val contactApi: ContactApi) {
     private var _contactList = MutableStateFlow<MutableList<Contact>>(mutableListOf())
     val contactsList: StateFlow<List<Contact>>
         get() = _contactList
 
     suspend fun addContact(): Contact {
-        val contact = contactService.getContact().body()!!
+        val contact = contactApi.getContact().body()!!
         val currentContactList = _contactList.value.toMutableList()
         currentContactList.add(contact)
         _contactList.value = currentContactList

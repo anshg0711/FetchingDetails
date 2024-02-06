@@ -9,11 +9,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelProvider
-import androidx.room.Room
-import com.example.fetchingdetails.repository.api.ContactService
+import com.example.fetchingdetails.repository.api.ContactApi
 import com.example.fetchingdetails.repository.api.RetrofitHelper
-import com.example.fetchingdetails.repository.ContactRepository
-import com.example.fetchingdetails.repository.roomDatabase.ContactDatabase
+import com.example.fetchingdetails.repository.api.ContactApiRepository
+import com.example.fetchingdetails.repository.roomDatabase.ContactRoomDatabase
 import com.example.fetchingdetails.ui.theme.FetchingDetailsTheme
 import com.example.fetchingdetails.view.FirstPage
 import com.example.fetchingdetails.viewModel.ContactViewModel
@@ -25,11 +24,12 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-         val contactService= RetrofitHelper.getInstance().create(ContactService::class.java)
-         val contactRepository=ContactRepository(contactService)
-         val contactDatabase= Room.databaseBuilder(applicationContext,ContactDatabase::class.java,"contact_DB").build()
+         val contactApi= RetrofitHelper.getInstance().create(ContactApi::class.java)
+         val contactApiRepository= ContactApiRepository(contactApi)
+         val contactRoomDatabase= ContactRoomDatabase.getInstance(applicationContext)
+        contactRoomDatabase.printDatabasePath(applicationContext)
         Log.d(getString(R.string.LifeCycle), getString(R.string.onCreate))
-        viewModel = ViewModelProvider(this, ContactViewModelFactory(contactRepository,contactDatabase)).get(ContactViewModel::class.java)
+        viewModel = ViewModelProvider(this, ContactViewModelFactory(contactApiRepository,contactRoomDatabase)).get(ContactViewModel::class.java)
         setContent {
             FetchingDetailsTheme {
                 // A surface container using the 'background' color from the theme

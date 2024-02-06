@@ -9,9 +9,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelProvider
-import com.example.fetchingdetails.repository.api.ContactService
+import com.example.fetchingdetails.repository.api.ContactApi
 import com.example.fetchingdetails.repository.api.RetrofitHelper
-import com.example.fetchingdetails.repository.api.ContactRepository
+import com.example.fetchingdetails.repository.api.ContactApiRepository
 import com.example.fetchingdetails.repository.roomDatabase.ContactDatabase
 import com.example.fetchingdetails.ui.theme.FetchingDetailsTheme
 import com.example.fetchingdetails.view.FirstPage
@@ -24,12 +24,12 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-         val contactService= RetrofitHelper.getInstance().create(ContactService::class.java)
-         val contactRepository= ContactRepository(contactService)
+         val contactApi= RetrofitHelper.getInstance().create(ContactApi::class.java)
+         val contactApiRepository= ContactApiRepository(contactApi)
          val contactDatabase= ContactDatabase.getInstance(applicationContext)
         contactDatabase.printDatabasePath(applicationContext)
         Log.d(getString(R.string.LifeCycle), getString(R.string.onCreate))
-        viewModel = ViewModelProvider(this, ContactViewModelFactory(contactRepository,contactDatabase)).get(ContactViewModel::class.java)
+        viewModel = ViewModelProvider(this, ContactViewModelFactory(contactApiRepository,contactDatabase)).get(ContactViewModel::class.java)
         setContent {
             FetchingDetailsTheme {
                 // A surface container using the 'background' color from the theme

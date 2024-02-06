@@ -19,7 +19,7 @@ class ContactApiRepository(private val contactApi: ContactApi) {
     fun addDBDatabase(contactLists: List<Contact>){
         _contactList.value= contactLists.toMutableList()
     }
-    suspend fun removeContact(contact: Contact){
+     fun removeContact(contact: Contact){
         val currentContactList = _contactList.value.toMutableList()
         currentContactList.removeAll(listOf(contact))
         _contactList.value = currentContactList

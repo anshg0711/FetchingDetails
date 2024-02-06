@@ -22,7 +22,6 @@ class ContactViewModel(
     fun addContact() {
         viewModelScope.launch(dispatcher) {
             Log.d("IO thread from addContact ", Thread.currentThread().name)
-
             val contact = contactApiRepository.addContact()
             contactRoomDatabase.addContact(contact)
         }

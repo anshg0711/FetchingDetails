@@ -39,3 +39,5 @@ u
 Eapp/src/main/java/com/example/fetchingdetails/view/ContactFaceCard.kt,3/e/3ed4f4e8776fbf4c71a97ef441534940cc635daa
 o
 ?app/src/main/java/com/example/fetchingdetails/view/FirstPage.kt,5/c/5c54b88824a4d0ee608e40d37e57e72201a3d39e
+o
+?app/src/main/java/com/example/fetchingdetails/ui/theme/Theme.kt,a/e/ae1451b09583cf3914ce5101d57cb2b2cd875187

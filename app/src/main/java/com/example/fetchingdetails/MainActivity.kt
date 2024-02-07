@@ -39,7 +39,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    FirstPage(contactViewModel = viewModel)
+//                    FirstPage(contactViewModel = viewModel) { open() }
                 }
             }
 

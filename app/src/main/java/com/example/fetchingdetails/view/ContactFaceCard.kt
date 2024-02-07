@@ -1,5 +1,6 @@
 package com.example.fetchingdetails.view
 
+import com.example.fetchingdetails.ButtonCallback
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,13 +18,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import com.example.fetchingdetails.model.Contact
 import com.example.fetchingdetails.viewModel.ContactViewModel
 
 
 @Composable
-fun ContactFaceCard(contact: Contact,contactViewModel: ContactViewModel) {
+fun ContactFaceCard(contact: Contact,contactViewModel: ContactViewModel, callback: ButtonCallback) {
     Card(
         modifier = Modifier
             .fillMaxSize()
@@ -38,67 +40,57 @@ fun ContactFaceCard(contact: Contact,contactViewModel: ContactViewModel) {
                 Image(
                     painter = rememberImagePainter(data = contact.avatar),
                     contentDescription = "image of the avatar", modifier = Modifier
-                        .size(135.dp).weight(.6F)
+                        .size(135.dp)
+                        .weight(.6F)
                         .clip(MaterialTheme.shapes.medium)
                 )
-                Button(modifier = Modifier.weight(.4F),onClick = { contactViewModel.removeContact(contact) }) {
-                    Text(text = "Erase")
-                }
+                Column(Modifier.weight(.4F)) {
+                    Button(modifier = Modifier.fillMaxSize(), onClick = {
+                        contactViewModel.removeContact(contact)
 
+                    }) {
+                        Text(text = "Delete")
+                    }
+
+                    Button(modifier = Modifier.fillMaxSize(), onClick = {
+
+                        callback.onButtonClickAdd(contact)
+                    }) {
+                        Text(text = "Open")
+                    }
+                }
             }
-            Row {
+            Text(text = "")
+            Text(text = "")
+            Row(Modifier.padding(horizontal = 10.dp)) {
                 Text(
                     modifier = Modifier.weight(1F),
+                    fontSize = 20.sp,
                     fontWeight = FontWeight(1000),
                     text = "FirstName: "
                 )
-                Text(modifier = Modifier.weight(1F), text = "${contact.first_name}  ")
+
+                Text(modifier = Modifier.weight(1F),
+                    fontSize = 20.sp,
+                    text = "${contact.first_name}  ")
             }
-            Row {
+
+            Row (Modifier.padding(horizontal = 10.dp)){
                 Text(
                     modifier = Modifier.weight(1F),
+                    fontSize = 20.sp,
                     fontWeight = FontWeight(1000),
                     text = "LastName: "
                 )
-                Text(modifier = Modifier.weight(1F), text = "${contact.last_name}  ")
+                Text(modifier = Modifier.weight(1F),
+                    fontSize = 20.sp,
+                    text = "${contact.last_name}  ")
             }
-            Row {
-                Text(
-                    modifier = Modifier.weight(1F),
-                    fontWeight = FontWeight(1000),
-                    text = "Phone Number: "
-                )
-                Text(modifier = Modifier.weight(1F), text = "${contact.phone_number}  ")
-            }
-            Row {
-                Text(
-                    modifier = Modifier.weight(1F),
-                    fontWeight = FontWeight(1000),
-                    text = "Date of birth: "
-                )
-                Text(modifier = Modifier.weight(1F), text = "${contact.date_of_birth}  ")
-            }
-            Row {
-                Text(
-                    modifier = Modifier.weight(1F),
-                    fontWeight = FontWeight(1000),
-                    text = "Email: "
-                )
-                Text(modifier = Modifier.weight(1F), text = "${contact.email}  ")
-            }
-            Row {
-                Text(
-                    modifier = Modifier.weight(1F),
-                    fontWeight = FontWeight(1000),
-                    text = "City/Country: "
-                )
-                Text(
-                    modifier = Modifier.weight(1F),
-                    text = "${contact.address.city}/${contact.address.country}"
-                )
-            }
+            Text(text = "")
+
 
 
         }
     }
 }
+

@@ -1,5 +1,6 @@
 package com.example.fetchingdetails.view
 
+import com.example.fetchingdetails.ButtonCallback
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,7 +22,7 @@ import com.example.fetchingdetails.viewModel.ContactViewModel
 
 
 @Composable
-fun FirstPage(contactViewModel: ContactViewModel) {
+fun FirstPage(contactViewModel: ContactViewModel, callback: ButtonCallback) {
     val contactsList by contactViewModel.contactList.collectAsState()
     Column {
         OutlinedButton(colors = ButtonDefaults.outlinedButtonColors(
@@ -42,7 +43,7 @@ fun FirstPage(contactViewModel: ContactViewModel) {
                 for (contact in contactsList) {
 
                     ContactFaceCard(
-                        contact, contactViewModel
+                        contact, contactViewModel, callback
                     )
                 }
 

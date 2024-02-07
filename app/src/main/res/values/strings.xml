@@ -9,4 +9,16 @@
     <string name="onDestroy">onDestroy</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="button">Button</string>
+    <string name="Introduction">Hey, I\'m Ansh! I really enjoy solving tricky coding puzzles and I\'m studying at IIIT Allahabad. When I\'m not busy with coding stuff, you might find me playing badminton. I love the excitement of solving programming challenges, but what I love even more is making everything fun. Whether I\'m working on tough coding problems or planning some goofy activities, I\'m always up for a good time!</string>
+    <string name="about">About</string>
+    <string name="onDestroyView">onDestroyView</string>
+    <string name="onDetach">onDetach</string>
+    <string name="onAttach">onAttach</string>
+    <string name="onViewCreated">onViewCreated</string>
+    <string name="onCreateView">onCreateView</string>
+    <string name="DetailViewFragmentLifeCycle">DetailViewFragmentLifeCycle</string>
+    <string name="AboutFragmentLifeCycle">AboutFragmentLifeCycle</string>
+    <string name="BlankFragmentLifeCycle">BlankFragmentLifeCycle</string>
+    <string name="ContactListFragmentLifeCycle">ContactListFragmentLifeCycle</string>
 </resources>

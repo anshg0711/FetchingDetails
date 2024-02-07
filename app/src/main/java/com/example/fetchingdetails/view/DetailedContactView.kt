@@ -118,6 +118,28 @@ fun DetailedContactView (contact:Contact, onClick: () -> Unit) {
                     text = "${contact.address.city}/${contact.address.country}"
                 )
             }
+            Row {
+                Text(
+                    fontSize = 20.sp,modifier = Modifier.weight(1F),
+                    fontWeight = FontWeight(1000),
+                    text = "ZipCode: "
+                )
+                Text(
+                    fontSize = 20.sp,modifier = Modifier.weight(1F),
+                    text = "${contact.address.city}/${contact.address.zip_code}"
+                )
+            }
+            Row {
+                Text(
+                    fontSize = 20.sp,modifier = Modifier.weight(1F),
+                    fontWeight = FontWeight(1000),
+                    text = "Job Title: "
+                )
+                Text(
+                    fontSize = 20.sp,modifier = Modifier.weight(1F),
+                    text = "${contact.address.city}/${contact.employment.title}"
+                )
+            }
 
 
         }

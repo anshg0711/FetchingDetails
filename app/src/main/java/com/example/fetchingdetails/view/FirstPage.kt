@@ -1,6 +1,6 @@
 package com.example.fetchingdetails.view
 
-import com.example.fetchingdetails.ButtonCallback
+import com.example.fetchingdetails.callback.ButtonCallback
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize

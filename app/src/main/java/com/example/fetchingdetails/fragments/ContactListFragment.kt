@@ -1,3 +1,5 @@
+package com.example.fetchingdetails.fragments
+
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -7,7 +9,7 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.fetchingdetails.ButtonCallback
+import com.example.fetchingdetails.callback.ButtonCallback
 import com.example.fetchingdetails.R
 import com.example.fetchingdetails.repository.api.ContactApi
 import com.example.fetchingdetails.repository.api.ContactApiRepository
@@ -23,7 +25,7 @@ class ContactListFragment(private val callback: ButtonCallback) : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
+        savedInstanceState: Bundle?): View {
         Log.d(getString(R.string.ContactListFragmentLifeCycle), "${getString(R.string.onCreateView)}   ${Thread.currentThread().name}")
         // Create a ComposeView and return it
         return ComposeView(requireContext()).apply {

@@ -1,6 +1,6 @@
 package com.example.fetchingdetails.view
 
-import com.example.fetchingdetails.ButtonCallback
+import com.example.fetchingdetails.callback.ButtonCallback
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -61,7 +61,7 @@ fun ContactFaceCard(contact: Contact,contactViewModel: ContactViewModel, callbac
                 }
             }
             Text(text = "")
-            Text(text = "")
+
             Row(Modifier.padding(horizontal = 10.dp)) {
                 Text(
                     modifier = Modifier.weight(1F),

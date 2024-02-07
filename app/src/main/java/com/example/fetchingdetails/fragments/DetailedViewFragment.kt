@@ -1,4 +1,4 @@
-package com.example.fetchingdetails
+package com.example.fetchingdetails.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
+import com.example.fetchingdetails.callback.ButtonCallback
+import com.example.fetchingdetails.R
 import com.example.fetchingdetails.model.Contact
 import com.example.fetchingdetails.view.DetailedContactView
 
@@ -17,7 +19,7 @@ class DetailedViewFragment(private val contact: Contact, private val callback: B
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         Log.d(getString(R.string.DetailViewFragmentLifeCycle), "${getString(R.string.onCreateView)}   ${Thread.currentThread().name}")
         // Create a ComposeView and return it
         return ComposeView(requireContext()).apply {

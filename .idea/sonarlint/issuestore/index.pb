@@ -61,3 +61,5 @@ t
 Dapp/src/main/java/com/example/fetchingdetails/ContactListFragment.kt,d/7/d78d1a49ee2e52a7ba8da60e558f89b6a3505806
 o
 ?app/src/main/java/com/example/fetchingdetails/ButtonCallback.kt,1/f/1ff9eb1eb29820ea7aae5d0598fb92ba7ccad6e9
+x
+Happ/src/main/java/com/example/fetchingdetails/fragments/AboutFragment.kt,5/d/5d071dd97fbb50cc6f3a4d8d3ed780cebcffe44b

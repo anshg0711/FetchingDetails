@@ -1,4 +1,4 @@
-package com.example.fetchingdetails
+package com.example.fetchingdetails.callback
 
 import com.example.fetchingdetails.model.Contact
 
